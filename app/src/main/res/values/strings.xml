@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AirPollutionMonitoring</string>
+    <string name="pm_2_5">PM 2.5</string>
+    <string name="pm_10">PM 10</string>
+    <string name="co">CO</string>
+    <string name="so4">SO4</string>
+    <string name="button1">Button1</string>
+    <string name="button2">Button2</string>
+    <string name="so2">SO2</string>
+    <string name="air_quality_index">Air Quality Index</string>
+    <string name="current_aqi_of_pm_2_5">Current AQI of PM 2.5:</string>
+    <string name="current_status">Current status:</string>
+    <string name="textview">TextView</string>
+</resources>

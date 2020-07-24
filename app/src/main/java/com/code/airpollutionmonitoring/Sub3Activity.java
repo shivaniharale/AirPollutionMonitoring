@@ -40,10 +40,12 @@ public class Sub3Activity<name> extends AppCompatActivity {
     private LinearLayout layout;
     private RequestQueue requestQueue;
     private String message;
-    private final int limit=50,threshold=20;
+    private final int limit=100,threshold=50;
     private int PERMISSION_REQUEST_CODE = 1000;
     private double sum,average;
 
+
+    //50ug
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +85,6 @@ public class Sub3Activity<name> extends AppCompatActivity {
                     currentData.append(array.getJSONObject(length).getString("field3"));
                     double data=Double.parseDouble(array.getJSONObject(length).getString("field3"));
 
-                    //data=70;
                     if( data >= threshold)
                     {
                         message="Increased CO level:Perform precautionary measures";

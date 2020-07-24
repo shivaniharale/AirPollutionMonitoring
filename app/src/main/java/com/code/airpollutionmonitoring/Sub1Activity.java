@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -40,10 +41,12 @@ public class Sub1Activity<name> extends AppCompatActivity {
     private LinearLayout layout;
     private RequestQueue requestQueue;
     private String message;
-    private final int limit=50,threshold=20;
+    private final int limit=100,threshold=35;
     private int PERMISSION_REQUEST_CODE = 1000;
     private double sum,average;
 
+
+    //35ug
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,8 @@ public class Sub1Activity<name> extends AppCompatActivity {
         currentData=findViewById(R.id.textView2);
         layout=findViewById(R.id.layout);
 
-        url = "https://api.thingspeak.com/channels/955795/feeds.json?api_key=J10B3J6FCU0JQ0CC&results=";
+        url="https://api.thingspeak.com/channels/955795/feeds.json?api_";
+       // url = "https://api.thingspeak.com/channels/955795/feeds.json?api_key=J10B3J6FCU0JQ0CC&results=";
         requestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
@@ -83,8 +87,7 @@ public class Sub1Activity<name> extends AppCompatActivity {
                     currentData.append(array.getJSONObject(length).getString("field1"));
                     double data=Double.parseDouble(array.getJSONObject(length).getString("field1"));
 
-                    //data=70;
-                    if( data >= threshold)
+                    if( limit>data && data>= threshold)
                     {
                         message="Increased PM 2.5 level:Perform precautionary measures";
                         addNotification(message);
@@ -115,6 +118,7 @@ public class Sub1Activity<name> extends AppCompatActivity {
 
     private void addNotification(String message) {
         NotificationCompat.Builder builder =new NotificationCompat.Builder(this,CHANNEL_ID)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.airpollutionimage))
                         .setSmallIcon(R.drawable.airpollutionimage)
                         .setContentTitle("WARNING")
                         .setContentText(message)
@@ -150,7 +154,7 @@ public class Sub1Activity<name> extends AppCompatActivity {
                 requestPermissions(permissions, PERMISSION_REQUEST_CODE);
             } else {
                 SmsManager smsManager = SmsManager.getDefault();
-                //smsManager.sendTextMessage("9890726906",null,message,pendingIntent,null);
+                smsManager.sendTextMessage("9890726906",null,message,null,null);
                 //smsManager.sendTextMessage("9011619459",null,message,pendingIntent,null);
                 smsManager.sendTextMessage("9762204449", null, message, null, null);
                 Log.d(TAG, "DID I REACH HERE?");

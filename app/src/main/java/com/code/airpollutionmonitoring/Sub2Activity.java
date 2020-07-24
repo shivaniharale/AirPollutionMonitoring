@@ -40,10 +40,12 @@ public class Sub2Activity<name> extends AppCompatActivity {
     private LinearLayout layout;
     private RequestQueue requestQueue;
     private String message;
-    private final int limit=50,threshold=20;
+    private final int limit=100,threshold=20;
     private int PERMISSION_REQUEST_CODE = 1000;
     private double sum,average;
 
+
+    //20ug
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +85,8 @@ public class Sub2Activity<name> extends AppCompatActivity {
                     currentData.append(array.getJSONObject(length).getString("field2"));
                     double data=Double.parseDouble(array.getJSONObject(length).getString("field2"));
 
-                    //data=70;
+
+                    data=120;
                     if( data >= threshold)
                     {
                         message="Increased PM 10 level:Perform precautionary measures";

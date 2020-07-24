@@ -40,11 +40,13 @@ public class Sub4Activity<name> extends AppCompatActivity {
     private LinearLayout layout;
     private RequestQueue requestQueue;
     private String message;
-    private final int limit=50,threshold=20;
+    private final int limit=3,threshold=1;
     private int PERMISSION_REQUEST_CODE = 1000;
     private double sum,average;
    // private String mobileNumbersArray[]=new String[];
 
+
+    //2ug
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,9 @@ public class Sub4Activity<name> extends AppCompatActivity {
         text =findViewById(R.id.textdata);
         currentData=findViewById(R.id.textView2);
         layout=findViewById(R.id.layout);
+
+       // url = "https://api.thingspeak.com/channels/955795/feeds.json?api_key=J10B3J6FCU0JQ0CC";
+
 
         url = "https://api.thingspeak.com/channels/955795/feeds.json?api_key=J10B3J6FCU0JQ0CC&results=";
         requestQueue = Volley.newRequestQueue(this);

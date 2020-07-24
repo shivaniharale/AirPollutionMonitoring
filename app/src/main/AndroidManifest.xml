@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".BarGraphActivity"/>
         <activity android:name=".Sub4Activity" />
         <activity android:name=".Sub3Activity" />
         <activity android:name=".Sub2Activity" />
